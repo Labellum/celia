@@ -19,6 +19,8 @@ source "$CURRENT_DIR/../themes/$theme.sh"
 source "$CURRENT_DIR/setup.sh"
 
 mod_bat="$CURRENT_DIR/../modules/bat.sh"
+mod_con="$CURRENT_DIR/../modules/connection.sh"
+mod_clock="$CURRENT_DIR/../modules/clock.sh"
 
 initCelia() {
   tmux set-option -g status-position $status_pos
@@ -33,6 +35,8 @@ initCelia() {
 
 loadModules() {
   source $mod_bat
+  source $mod_con
+  source $mod_clock
 }
 
 main() {

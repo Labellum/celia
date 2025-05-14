@@ -11,6 +11,12 @@ rl_sep=$(get_option "@celia-rl-sep" "")
 rr_sep=$(get_option "@celia-rr-sep" "")
 
 # Icons
-ico_battery=$(get_option "@celia-icon-battery" "")
-ico_wifi=$(get_option "@celia-icon-wifi" " ")
-ico_clock=$(get_option "@celia-icon-clock" "󱑎")
+icon_battery=$(get_option "@celia-icon-battery" "")
+icon_wifi=$(get_option "@celia-icon-wifi" "")
+icon_offline=$(get_option "@celia-icon-offline" "󰌙")
+icon_clock=$(get_option "@celia-icon-clock" "󰥔")
+
+# Modules Colors
+col_battery=$(get_option "@celia-color-battery" "$col_blue")
+col_network=$(get_option "@celia-color-network" "$col_yellow")
+col_clock=$(get_option "@celia-color-clock" "$col_green")

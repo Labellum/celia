@@ -4,6 +4,9 @@ CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$CURRENT_DIR/functions.sh"
 
+# General Options
+status_pos=$(get_option "@celia-pos" "top")
+
 # Separators
 ll_sep=$(get_option "@celia-ll-sep" "")
 lr_sep=$(get_option "@celia-lr-sep" "")

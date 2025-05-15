@@ -11,12 +11,10 @@ CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$CURRENT_DIR/functions.sh"
 
 # Declare all the variables. Look first if the user has configured them. If not, use a default fallback value.
-status_pos=$(get_option "@celia-pos" "bottom")
+source "$CURRENT_DIR/setup.sh"
 
 theme=$(get_option "@celia-theme" "auto")
 source "$CURRENT_DIR/../themes/$theme.sh"
-
-source "$CURRENT_DIR/setup.sh"
 
 mod_bat="$CURRENT_DIR/../modules/bat.sh"
 mod_net="$CURRENT_DIR/../modules/network.sh"

@@ -27,14 +27,30 @@ initCelia() {
   tmux set-option -g status-right ""
   tmux set-option -g status-left-length 100
   tmux set-option -g status-right-length 100
-  tmux set-option -g status-right "#[fg=$col_text]#(echo 'Celia ')"
+  tmux set-option -g status-right "#[fg=$col_text]#(echo 'Celia ')#(echo '$amount_modules_right')"
 
 }
 
 loadModules() {
-  source $mod_bat
-  source $mod_net
-  source $mod_clock
+  for ((i = 1; i <= $amount_modules_right; i++)); do
+    get_modules=$(echo $modules_right | awk '{ print '\$$i'}')
+    echo "loading module: $get_modules"
+    case $get_modules in
+      "battery")
+        source $mod_bat
+        ;;
+      "network")
+        source $mod_net
+        ;;
+      "clock")
+        source $mod_clock
+        ;;
+    esac
+  done
+  
+  # source $mod_bat
+  # source $mod_net
+  # source $mod_clock
 }
 
 main() {

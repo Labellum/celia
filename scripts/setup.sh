@@ -6,6 +6,9 @@ source "$CURRENT_DIR/functions.sh"
 
 # General Options
 status_pos=$(get_option "@celia-pos" "top")
+modules_right=$(get_option "@celia-modules-right" "battery network clock")
+amount_modules_right_pre=$(echo "$modules_right" | grep -o ' ' | wc -l)
+amount_modules_right=$(($amount_modules_right_pre + 1))
 
 # Separators
 ll_sep=$(get_option "@celia-ll-sep" "")

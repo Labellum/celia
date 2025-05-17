@@ -34,7 +34,7 @@ initCelia() {
 loadModules() {
   for ((i = 1; i <= $amount_modules_right; i++)); do
     get_modules=$(echo $modules_right | awk '{ print '\$$i'}')
-    echo "loading module: $get_modules"
+
     case $get_modules in
       "battery")
         source $mod_bat

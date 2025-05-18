@@ -2,7 +2,6 @@
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$CURRENT_DIR/setup.sh"
-source "$CURRENT_DIR/../themes/$theme.sh"
 
 git_dir="$(tmux display-message -p -F "#{pane_current_path}" -t0)/.git"
 
@@ -13,7 +12,7 @@ if [ -d "$git_dir" ]; then
   amt_removed="$(git -C "$git_dir/.." status -s | grep -o 'D ' | wc -l)"
   amt_ignored="$(git -C "$git_dir/.." status -s | grep -o '?? ' | wc -l)"
 
-  echo "$icon_branch $(git -C "$git_dir/.." branch | awk '{print $2}') #[fg=$col_cyan]$icon_added $amt_added #[fg=$col_yellow]$icon_modified $amt_modified #[fg=$col_red]$icon_removed $amt_removed #[fg=$col_magenta]$icon_ignored $amt_ignored"
+  echo "$icon_branch $(git -C "$git_dir/.." branch | awk '{print $2}')  #[fg=$col_cyan]$icon_added $amt_added #[fg=$col_yellow]$icon_modified $amt_modified #[fg=$col_red]$icon_removed $amt_removed #[fg=$col_magenta]$icon_ignored $amt_ignored"
 else
   echo ""
 fi

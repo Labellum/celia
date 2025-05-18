@@ -13,12 +13,12 @@ source "$CURRENT_DIR/functions.sh"
 # Declare all the variables. Look first if the user has configured them. If not, use a default fallback value.
 source "$CURRENT_DIR/setup.sh"
 
-theme=$(get_option "@celia-theme" "auto")
-source "$CURRENT_DIR/../themes/$theme.sh"
 
+# Modules
 mod_bat="$CURRENT_DIR/../modules/bat.sh"
 mod_net="$CURRENT_DIR/../modules/network.sh"
 mod_clock="$CURRENT_DIR/../modules/clock.sh"
+mod_git="$CURRENT_DIR/../modules/git.sh"
 
 initCelia() {
   tmux set-option -g status-position $status_pos
@@ -36,18 +36,37 @@ loadModules() {
     get_modules=$(echo $modules_right | awk '{ print '\$$i'}')
 
     case $get_modules in
-      "battery")
-        source $mod_bat
-        ;;
-      "network")
-        source $mod_net
-        ;;
-      "clock")
-        source $mod_clock
-        ;;
+    "battery")
+      source $mod_bat
+      ;;
+    "network")
+      source $mod_net
+      ;;
+    "clock")
+      source $mod_clock
+      ;;
     esac
   done
-  
+
+  for ((i = 1; i <= $amount_modules_left; i++)); do
+    get_modules=$(echo $modules_left | awk '{ print '\$$i'}')
+
+    case $get_modules in
+    "battery")
+      source $mod_bat
+      ;;
+    "network")
+      source $mod_net
+      ;;
+    "clock")
+      source $mod_clock
+      ;;
+    "git")
+      source $mod_git
+      ;;
+    esac
+  done
+
   # source $mod_bat
   # source $mod_net
   # source $mod_clock

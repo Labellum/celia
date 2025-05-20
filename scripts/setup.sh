@@ -14,6 +14,7 @@ amount_modules_right=$(($amount_modules_right_pre + 1))
 modules_left=$(get_option "@celia-modules-left" "git")
 amount_modules_left_pre=$(echo "$modules_left" | grep -o ' ' | wc -l)
 amount_modules_left=$(($amount_modules_left_pre + 1))
+disp_repo_name=$(get_option "@celia-repo-name" "hide")
 
 # Separators
 ll_sep=$(get_option "@celia-ll-sep" "")

@@ -27,7 +27,7 @@ initCelia() {
   tmux set-option -g status-right ""
   tmux set-option -g status-left-length 100
   tmux set-option -g status-right-length 100
-  tmux set-option -g status-right "#[fg=$col_text]#(echo 'Celia ')#(echo '$amount_modules_right')"
+  # tmux set-option -g status-right "#[fg=$col_text]#(echo 'Celia ')#(echo '$amount_modules_right')"
 
 }
 

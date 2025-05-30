@@ -45,7 +45,7 @@ col_git=$(get_option "@celia-color-git" "$col_green")
 
 # Festivities!
 if [ $festive == true ]; then
-  if [[ $(date +"%m") == 05 ]]; then # Check if it's October
+  if [[ $(date +"%m") == 10 ]]; then # Check if it's October
    icon_battery="󰮣"
    icon_wifi=""
    icon_clock=""

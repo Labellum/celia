@@ -16,6 +16,7 @@ amount_modules_left_pre=$(echo "$modules_left" | grep -o ' ' | wc -l)
 amount_modules_left=$(($amount_modules_left_pre + 1))
 disp_repo_name=$(get_option "@celia-repo-name" "hide")
 festive=$(get_option "@celia-festive" true)
+festive_style=$(get_option "@celia-festive-style" "none")
 
 # Separators
 ll_sep=$(get_option "@celia-ll-sep" "")
@@ -28,6 +29,7 @@ icon_battery=$(get_option "@celia-icon-battery" "")
 icon_wifi=$(get_option "@celia-icon-wifi" "")
 icon_offline=$(get_option "@celia-icon-offline" "󰌙")
 icon_clock=$(get_option "@celia-icon-clock" "󰥔")
+
 icon_git=$(get_option "@celia-icon-git" "")
 icon_repo_none=$(get_option "@celia-icon-repo-none" "")
 icon_repo=$(get_option "@celia-icon-repo" "")
@@ -37,15 +39,19 @@ icon_modified=$(get_option "@celia-icon-modified" "")
 icon_removed=$(get_option "@celia-icon-removed" "")
 icon_ignored=$(get_option "@celia-icon-ignored" "")
 
+icon_rain=$(get_option "@celia-icon-rain" "")
+icon_weather=$icon_rain
+
 # Modules Colors
 col_battery=$(get_option "@celia-color-battery" "$col_blue")
 col_network=$(get_option "@celia-color-network" "$col_yellow")
+col_weather=$(get_option "@celia-color-weather" "$col_yellow")
 col_clock=$(get_option "@celia-color-clock" "$col_green")
 col_git=$(get_option "@celia-color-git" "$col_green")
 
 # Festivities!
 if [ $festive == true ]; then
-  if [[ $(date +"%m") == 10 ]]; then # Check if it's October
+  if [[ $(date +"%m") == 10 ]] || [[ $festive_style == "Halloween" ]]; then # Check if it's October
    icon_battery="󰮣"
    icon_wifi=""
    icon_clock=""

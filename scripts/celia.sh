@@ -17,6 +17,7 @@ source "$CURRENT_DIR/setup.sh"
 # Modules
 mod_bat="$CURRENT_DIR/../modules/bat.sh"
 mod_net="$CURRENT_DIR/../modules/network.sh"
+mod_weather="$CURRENT_DIR/../modules/weather.sh"
 mod_clock="$CURRENT_DIR/../modules/clock.sh"
 mod_git="$CURRENT_DIR/../modules/git.sh"
 
@@ -25,10 +26,8 @@ initCelia() {
   tmux set-option -g status-style bg=$col_back
   tmux set-option -g status-left ""
   tmux set-option -g status-right ""
-  tmux set-option -g status-left-length 100
-  tmux set-option -g status-right-length 100
-  # tmux set-option -g status-right "#[fg=$col_text]#(echo 'Celia ')#(echo '$amount_modules_right')"
-
+  tmux set-option -g status-left-length 150
+  tmux set-option -g status-right-length 150
 }
 
 loadModules() {
@@ -41,6 +40,9 @@ loadModules() {
       ;;
     "network")
       source $mod_net
+      ;;
+    "weather")
+      source $mod_weather
       ;;
     "clock")
       source $mod_clock

@@ -1,16 +1,24 @@
 #!/usr/bin/env bash
 
-interval=$(cat weatherInterval.txt)
-currentTime=$(date +"%H:%M")
-firstStartup=$(cat firstStartup.txt)
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [ "$currentTime" -gt "$interval"] || [ -z "$firstStartup" ]; then 
+interval=$(cat "$CURRENT_DIR/weatherInterval.txt")
+currentTime=$(date +"%H%M")
+firstStartup=$(cat "$CURRENT_DIR/firstStartup.txt")
+
+if [[ $currentTime -gt $interval ]] || [[ $firstStartup == 0 ]]; then 
  city=$(curl -s ifconfig.co/city)
  weather_cond=$(curl -s "wttr.in/$city?format=%C&nonce=$RANDOM")
  temp=$(curl -s "wttr.in/Varberg?format=%t&nonce=$RANDOM")
  
-# Save current date + 30 minutes ahead.
- echo $(date +"%H:%M" --date="+30 minutes") > $CURRENT_DIR/../scripts/weatherInterval.txt
+ echo $weather_cond > $CURRENT_DIR/weatherCond.txt
+ echo $temp > $CURRENT_DIR/weatherTemp.txt
 
- echo 1 > $CURRENT_DIR/../scripts/firstStartup.txt
- fi
+ # Save current date + 30 minutes ahead.
+ echo $(date +"%H%M" --date="+30 minutes") > $CURRENT_DIR/weatherInterval.txt
+
+ echo 1 > $CURRENT_DIR/firstStartup.txt
+else
+  weather_cond=$(cat "$CURRENT_DIR/weatherCond.txt")
+  temp=$(cat "$CURRENT_DIR/weatherTemp.txt")
+fi

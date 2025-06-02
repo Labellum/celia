@@ -14,8 +14,8 @@ weather_cond=$(curl -s "wttr.in/$city?format=%C&nonce=$RANDOM")
     "Clear")
       icon_weather="󰖙"
       ;;
-    "weather")
-      icon_weather="󰖕"
+    "Sunny")
+      icon_weather="󰖙"
       ;;
     "clock")
       icon_weather="󰖕"

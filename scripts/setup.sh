@@ -18,6 +18,7 @@ disp_repo_name=$(get_option "@celia-repo-name" "hide")
 festive=$(get_option "@celia-festive" true)
 festive_style=$(get_option "@celia-festive-style" "none")
 
+
 # Separators
 ll_sep=$(get_option "@celia-ll-sep" "")
 lr_sep=$(get_option "@celia-lr-sep" "")

@@ -2,10 +2,7 @@
 
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-source "$CURRENT_DIR/setup.sh"
-
-city=$(curl -s ifconfig.co/city)
-weather_cond=$(curl -s "wttr.in/$city?format=%C&nonce=$RANDOM")
+source "$CURRENT_DIR/setupWeather.sh"
 
     case $weather_cond in
     "Partly cloudy")
@@ -17,8 +14,8 @@ weather_cond=$(curl -s "wttr.in/$city?format=%C&nonce=$RANDOM")
     "Sunny")
       icon_weather="󰖙"
       ;;
-    "clock")
-      icon_weather="󰖕"
+    "Overcast")
+      icon_weather="󰖐"
       ;;
     esac
 echo $icon_weather

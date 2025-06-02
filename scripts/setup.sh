@@ -44,11 +44,12 @@ icon_rain=$(get_option "@celia-icon-rain" "")
 icon_weather=$icon_rain
 
 # Modules Colors
-col_battery=$(get_option "@celia-color-battery" "$col_blue")
-col_network=$(get_option "@celia-color-network" "$col_yellow")
+col_battery=$(get_option "@celia-color-battery" "$col_magenta")
+col_network=$(get_option "@celia-color-network" "$col_cyan")
 col_weather=$(get_option "@celia-color-weather" "$col_yellow")
-col_clock=$(get_option "@celia-color-clock" "$col_green")
+col_clock=$(get_option "@celia-color-clock" "$col_blue")
 col_git=$(get_option "@celia-color-git" "$col_green")
+col_prefix=$(get_option "@celia-color-prefix" "$col_red")
 
 # Festivities!
 if [ $festive == true ]; then
@@ -60,6 +61,7 @@ if [ $festive == true ]; then
    icon_repo="󰗚"
    col_battery=$col_yellow
    col_network=$col_yellow
+   col_weather=$col_yellow
    col_clock=$col_yellow
    col_git=$col_yellow
  fi

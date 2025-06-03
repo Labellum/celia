@@ -6,7 +6,7 @@ interval=$(cat "$CURRENT_DIR/weatherInterval.txt")
 currentTime=$(date +"%H%M")
 firstStartup=$(cat "$CURRENT_DIR/firstStartup.txt")
 
-if [[ $currentTime -gt $interval ]] || [[ $firstStartup == 0 ]] || [[ $currentTime -lt 0001]]; then 
+if [[ $currentTime -gt $interval ]] || [[ $firstStartup == 0 ]] || [[ $currentTime -lt 0001 ]]; then 
  city=$(curl -s ifconfig.co/city)
  weather_cond=$(curl -s "wttr.in/$city?format=%C&nonce=$RANDOM")
  temp=$(curl -s "wttr.in/Varberg?format=%t&nonce=$RANDOM")

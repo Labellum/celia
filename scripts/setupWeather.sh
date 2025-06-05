@@ -9,7 +9,7 @@ firstStartup=$(cat "$CURRENT_DIR/firstStartup.txt")
 if [[ $currentTime -gt $interval ]] || [[ $firstStartup == 0 ]]; then 
  city=$(curl -s ifconfig.co/city)
  weather_cond=$(curl -s "wttr.in/$city?format=%C&nonce=$RANDOM")
- temp=$(curl -s "wttr.in/Varberg?format=%t&nonce=$RANDOM")
+ temp=$(curl -s "wttr.in/$city?format=%t&nonce=$RANDOM")
  
  echo $weather_cond > $CURRENT_DIR/weatherCond.txt
  echo $temp > $CURRENT_DIR/weatherTemp.txt

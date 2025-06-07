@@ -20,5 +20,8 @@ source "$CURRENT_DIR/setupWeather.sh"
     "Light rain")
       icon_weather=""
       ;;
+    "Patchy rain nearby")
+      icon_weather=""
+      ;;
     esac
 echo $icon_weather

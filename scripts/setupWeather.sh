@@ -13,7 +13,11 @@ if [[ $currentTime -gt $interval ]] || [[ $firstStartup == 0 ]]; then
  
  echo $weather_cond > $CURRENT_DIR/weatherCond.txt
  echo $temp > $CURRENT_DIR/weatherTemp.txt
-
+ 
+ if grep -q 'Unknown location' $CURRENT_DIR/weatherCond.txt; then
+  echo "Unknown location" > "$CURRENT_DIR/weatherCond.txt"
+  echo "󰼈" > "$CURRENT_DIR/weatherTemp.txt"
+ fi
  # Save current date + 30 minutes ahead.
  echo $(date +"%H%M" --date="+30 minutes") > $CURRENT_DIR/weatherInterval.txt
 

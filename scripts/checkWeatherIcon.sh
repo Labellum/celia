@@ -23,5 +23,8 @@ source "$CURRENT_DIR/setupWeather.sh"
     "Patchy rain nearby")
       icon_weather=""
       ;;
+    "Unknown location")
+      icon_weather=""
+      ;;
     esac
 echo $icon_weather

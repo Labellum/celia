@@ -40,8 +40,7 @@ icon_modified=$(get_option "@celia-icon-modified" "")
 icon_removed=$(get_option "@celia-icon-removed" "")
 icon_ignored=$(get_option "@celia-icon-ignored" "")
 
-icon_rain=$(get_option "@celia-icon-rain" "")
-icon_weather=$icon_rain
+icon_weather=$(get_option "@celia-icon-weather" "")
 
 # Modules Colors
 col_battery=$(get_option "@celia-color-battery" "$col_magenta")

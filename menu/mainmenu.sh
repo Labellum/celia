@@ -7,4 +7,4 @@ reloadWeather(){
   echo 0 > "$CURRENT_DIR_MENU/../scripts/firstStartup.txt"
 }
 
-tmux display-menu -T "#[fg=blue, bg=black, align=centre] Celia Commands " -H "bg=blue, fg=black" -b "rounded" -s "bg=black" -S "bg=black" -x L -y S "Reload Weather" 1 "run \"$CURRENT_DIR_MENU/reloadWeather.sh\"" "" "Close" 2 ""
+tmux display-menu -T "#[fg=blue, bg=default, align=centre] Celia Commands " -H "bg=blue, fg=black" -b "rounded" -s "bg=black" -S "bg=black" -x L -y S "Reload Weather" 1 "run \"$CURRENT_DIR_MENU/reloadWeather.sh\"" "" "Close" 2 ""

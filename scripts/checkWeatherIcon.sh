@@ -29,5 +29,8 @@ source "$CURRENT_DIR/setupWeather.sh"
     "Unknown location")
       icon_weather=""
       ;;
+    "Loading...")
+      icon_weather="󱣶"
+      ;;
     esac
 echo $icon_weather

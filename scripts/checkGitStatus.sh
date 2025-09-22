@@ -10,11 +10,11 @@ repo_name="$(basename "$(git -C "$git_dir/.." config --get remote.origin.url)" |
 if [ -d "$git_dir" ]; then
 
   if [[ $disp_repo_name == "show" ]]; then
-    echo " $icon_repo $repo_name #[fg=$col_git, bg=$col_black]$lr_sep"
+    echo "$icon_repo $repo_name #[fg=$col_git, bg=$col_black]$lr_sep"
   else
-    echo " $icon_repo"
+    echo "$icon_repo"
   fi
 
 else
-  echo " $icon_repo_none"
+  echo "$icon_repo_none"
 fi

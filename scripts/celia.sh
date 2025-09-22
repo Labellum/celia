@@ -26,8 +26,8 @@ initCelia() {
   tmux set-option -g status-style bg=$col_back
   tmux set-option -g status-left ""
   tmux set-option -g status-right ""
-  tmux set-option -g status-left-length 150
-  tmux set-option -g status-right-length 150
+  tmux set-option -g status-left-length 60
+  tmux set-option -g status-right-length 60
 }
 
 loadModules() {
